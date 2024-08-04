@@ -1,0 +1,51 @@
+//background related 
+background-repeat ;
+background-size (contain,cover)
+visibility : hidden/visible
+text-decoration : none/line-through
+line-height
+
+//box model
+margin :
+border
+padding
+content : 
+border-radius
+
+ //display properties
+   block element (takes new line)
+   div,p,ul,li,h1,h2,h3,h4,h5,h6
+
+   in-line element (dont take new line)
+   span,strong,a,button;
+
+display : inline ; inline-block ; none ;
+// if i use inline then height and weight can not be set so 
+// its better to use diplay : inline-block
+// we use display : none if we want to delete an item actually it 
+// delete the content and space too.
+
+//semantic tag (use for seo. great to use)
+header(navbar)
+main(section)
+footer
+
+//position :
+top , left , right , bottom from where i can set the postion of a i.e : div
+postion : relative ; absolute ; fixed ;
+here abosolute and fixed are same both comes up one level
+//
+
+//flex-box 
+display : flex; its like inline-block
+flex-direction : row (default), column;
+//flex-box (container)
+ 
+justify-content : flex-start; flex-end;center; space-between;
+
+flex-wrap : none; flex-wrap : wrap ;
+align-self : it has more priority than align-items
+
+
+//transition : all 0.1 ease-in-out 0.1;
+transform : rotate(deg) ;translate(px x theke kototuk sorabe / y ->) ;  scale(oitar kotogun boro korbo);

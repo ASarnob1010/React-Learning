@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnob Bokshi - Aspiring Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: rgb(247, 238, 238);
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #333;
+            color: #f5f5f5;
+        }
+        nav {
+            background-color: #444;
+            display: flex;
+            justify-content: row;
+            align-items: center;
+            height: 60px;
+            padding-right: 30px;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode nav {
+            background-color: #222;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            justify-content: flex-end;
+            padding: 15px;
+            font-family: 'Consolas', monospace;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #f0ad1c;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px auto;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .intro {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        h3 {
+            font-family: 'Consolas', monospace;
+            color: #f97a4c;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #f97a4c;
+            color: white;
+            padding: 10px 22px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 2px;
+        }
+        button:hover {
+            background-color: rgb(255, 71, 108);
+        }
+        button:active {
+            background-color: #fa950f;
+            color: black;
+        }
+        .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin: 40px auto;
+            padding: 20px;
+            border: 2px solid #f0ad1c;
+            border-radius: 10px;
+            background-color: #fff;
+            max-width: 1000px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        body.dark-mode .container {
+            background-color: #444;
+            border-color: #f97a4c;
+        }
+        .box {
+            width: 250px;
+            height: 250px;
+            background-color: #f0ad1c;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.5;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .box:hover {
+            transform: translate(5px); /* Move effect on hover */
+            background-color: rgb(255, 71, 108); /* Change background color on hover */
+        }
+        body.dark-mode .box {
+            background-color: #666;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .logo img {
+            width: 30px;
+            height: 30px;
+        }
+        .nav {
+    display: flex;
+    justify-content: space-between; /* Use space-between to distribute the links evenly */
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: #444;
+    border-bottom: 2px solid #444;
+}
+
+.nav a {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    transition: border-bottom 0.3s, color 0.3s; /* Smooth transition for border and color */
+    border-bottom: 2px solid transparent; /* Add transparent border initially */
+}
+
+.nav a:hover {
+    border-bottom: 2px solid #e0841a; /* Change border color on hover */
+    color: #e0841a; /* Optionally change text color on hover */
+}
+.check{
+    height: 30px;
+    width : 30px;
+    box-sizing : content-box;
+}
+
+    </style>
+</head>
+<body>
+    <header style="display: flex; align-items: center; height: 60px; width: 100%; background-color: rgba(14, 13, 13, 0.836);">
+        <div class="logo">
+            <img src="https://www.pngkit.com/png/full/255-255-432382_transparent-mountain-peak-icon-png.png" alt="Logo">
+        </div>
+        <div class="search">
+        </div>
+        <nav class="nav">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">About me</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+        <button id="toggle-theme-button" class="check">Dark Mode</button>
+    </header>
+    <main>
+        <div class="image-container">
+            <img src="https://media.istockphoto.com/id/482784465/photo/colorful-nebula.jpg?s=1024x1024&w=is&k=20&c=8ct9eUtCDx6yf29CtZrr-_9gS2ZTe2LA6LTJn1_CQXs=" alt="Colorful nebula">
+        </div>
+        <div class="intro">
+            <h3>I am Arnob Bokshi.<br>Aspiring Software Engineer.</h3>
+            <button id="pse" class="hire-me-button">Hire me</button>
+        </div>
+        <div class="container" style="display: flex; gap: 20px; padding: 20px;">
+            <div class="box">
+              <div style="font-weight: bold; margin-bottom: 10px; font-size: 18px;">Project Experience</div>
+              <div style="font-size: 14px; margin-top: 10px; overflow: visible">
+                <ul style="list-style-type: disc; padding-left: 20px; text-align: left;">
+                  <li>Developing a full-stack e-commerce website with React and Node.js.</li>
+                  <li>Building a real-time chat application.</li>
+                  <li>Creating modern web design trends.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="box">
+              <div style="font-weight: bold; margin-bottom: 10px; font-size: 18px;">Skills</div>
+              <div style="font-size: 14px; margin-top: 10px;">
+                <p>Proficient in:</p>
+                <ul style="list-style-type: disc; padding-left: 20px; text-align: left;">
+                  <li>Front-end frameworks: React, Angular, Vue</li>
+                  <li>Back-end technologies: Node.js, Express, Django</li>
+                  <li>Databases: MongoDB, MySQL, PostgreSQL</li>
+                  <li>Version control: Git, GitHub</li>
+                </ul>
+              </div>
+            </div>
+            <div class="box">
+              <div style="font-weight: bold; margin-bottom: 10px; font-size: 18px;">Achievements</div>
+              <div style="font-size: 14px; margin-top: 10px;">
+                <ul style="list-style-type: disc; padding-left: 20px; text-align: left;">
+                  <li>Winner of the 2023 Hackathon for Innovative App Development.</li>
+                  <li>Certified as a Full-Stack Developer by XYZ Academy.</li>
+                  <li>Recognized for outstanding contributions to open-source projects.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+    </main>
+    <script>
+        const toggleThemeButton = document.getElementById('toggle-theme-button');
+        const body = document.body;
+
+        toggleThemeButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
+            
+            toggleThemeButton.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
+        });
+    </script>
+</body>
+</html>
