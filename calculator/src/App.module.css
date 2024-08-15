@@ -1,0 +1,8 @@
+.calculator{
+    height: 400px;
+    width : 230px;
+    margin : 30px;
+    background-color: whitesmoke;
+    border : 3px solid black;
+    border-radius: 10px;
+}
