@@ -1,0 +1,25 @@
+.crud {
+    width: 100%;
+    margin-top: 50px;
+    border: 3px solid #ccc;
+    font-family: monospace;
+    font-weight: semi-bold;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.crud th, 
+.crud tr:nth-child(even) {
+    background-color: rgb(210, 227, 245);
+    padding: 15px;
+}
+
+table {
+    border-collapse: collapse;
+}
+.crud td{
+    padding: 15px;
+    border: 1px solid #ccc;
+    height: 30px;
+}
