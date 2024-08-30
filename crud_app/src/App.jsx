@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import 'remixicon/fonts/remixicon.css';
-import './App.css';
+import 'remixicon/fonts/remixicon.css'; // Importing Remixicon icons
+import './App.css'; // Importing the CSS file for styling
 
 const App = () => {
   const [open, setOpen] = useState(true);
-  const handleDrawer = () => {
-    setOpen(!open);
-  };
-
+  const [edit, seteditSt] = useState(null);
   const [students, createSt] = useState([]);
   const [form, setForm] = useState({
     fullname: '',
@@ -16,6 +13,11 @@ const App = () => {
     ID: '',
     DOB: '',
   });
+
+  const handleDrawer = () => {
+    setOpen(!open);
+  };
+
   const createStudent = (e) => {
     e.preventDefault();
     createSt([...students, form]);
@@ -29,11 +31,28 @@ const App = () => {
     const key = input.name;
     setForm({ ...form, [key]: value });
   };
- const deleteSt = (index)=>{
-        const copy = [...students];
-        copy.splice(index,1);
-        createSt(copy);
- }
+
+  const saveStudent = (e) => {
+    e.preventDefault();
+    const backup = [...students];
+    backup[edit] = form;
+    createSt(backup);
+    seteditSt(null);
+    setOpen(false);
+  };
+
+  const deleteSt = (index) => {
+    const copy = [...students];
+    copy.splice(index, 1);
+    createSt(copy);
+  };
+
+  const editStudent = (index) => {
+    setOpen(!open);
+    setForm(students[index]);
+    seteditSt(index);
+  };
+
   return (
     <div style={{ background: '#ddd', height: '100vh', fontFamily: 'monospace' }}>
       <div style={{ background: 'white', width: '70%', margin: '32px auto', padding: '32px', borderRadius: '10px', boxShadow: '0 0 20px rgba(0,0,0,0.1)' }}>
@@ -70,14 +89,14 @@ const App = () => {
           <tbody>
             {students.map((student, index) => (
               <tr key={index}>
-                <td>{index+1}</td>
+                <td>{index + 1}</td>
                 <td>{student.ID}</td>
                 <td>{student.fullname}</td>
                 <td>{student.class}</td>
                 <td>{student.subject}</td>
                 <td>{student.DOB}</td>
                 <td>
-                  <button
+                  <button onClick={() => editStudent(index)}
                     style={{
                       marginRight: '8px',
                       padding: '8px 12px',
@@ -91,8 +110,8 @@ const App = () => {
                   >
                     <i className="ri-file-edit-line"></i>
                   </button>
-                  <button onClick={()=>deleteSt(index)}
-                    style={{ 
+                  <button onClick={() => deleteSt(index)}
+                    style={{
                       padding: '8px 12px',
                       border: 'none',
                       background: 'tomato',
@@ -144,8 +163,9 @@ const App = () => {
           <i className="ri-close-circle-line"></i>
         </button>
         <h1>New Student</h1>
-        <form action="" onSubmit={createStudent} style={{ display: 'flex', flexDirection: 'column', gap: 35 }}>
-         <input
+        <form action="" onSubmit={edit === null ? createStudent : saveStudent}
+          style={{ display: 'flex', flexDirection: 'column', gap: 25 }}>
+          <input
             onChange={handleInput}
             type="text"
             required
@@ -161,12 +181,12 @@ const App = () => {
               fontFamily: 'monospace',
             }}
           />
-            <input
+          <input
             onChange={handleInput}
             type="text"
             required
             name="subject"
-            placeholder="enter subject"
+            placeholder="Enter subject"
             value={form.subject}
             style={{
               fontWeight: 'bold',
@@ -224,24 +244,46 @@ const App = () => {
               fontFamily: 'monospace',
             }}
           />
-          <input
-            onChange={handleInput}
-            type="submit"
-            value="Submit"
-            style={{
-              width: 352.5,
-              fontSize: 20,
-              fontFamily: 'monospace',
-              padding: 16,
-              borderRadius: 4,
-              background: 'dodgerblue',
-              color: 'white',
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-              transition: 'background 0.3s ease',
-            }}
-          />
+          {
+            edit === null ?
+              <input
+                onClick={createStudent}
+                type="submit"
+                value="Submit"
+                style={{
+                  width: 352.5,
+                  fontSize: 20,
+                  fontFamily: 'monospace',
+                  padding: 13,
+                  borderRadius: 4,
+                  background: 'dodgerblue',
+                  color: 'white',
+                  border: 'none',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  transition: 'background 0.3s ease',
+                }}
+              />
+              :
+              <input
+                onClick={saveStudent}
+                type="submit"
+                value="Save"
+                style={{
+                  width: 352.5,
+                  fontSize: 20,
+                  fontFamily: 'monospace',
+                  padding: 13,
+                  borderRadius: 4,
+                  background: 'crimson',
+                  color: 'white',
+                  border: 'none',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  transition: 'background 0.3s ease',
+                }}
+              />
+          }
         </form>
       </aside>
     </div>
